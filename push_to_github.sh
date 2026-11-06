@@ -23,3 +23,4 @@ echo "1. Open https://streamlit.io/cloud"
 echo "2. Click 'New App'"
 echo "3. Select this repository and 'app.py', then click 'Deploy'"
 echo "================================================================"
+

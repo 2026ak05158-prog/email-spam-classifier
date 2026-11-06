@@ -136,3 +136,4 @@ The evaluation metrics calculated across all 5 models on the identical test set 
    - Inspect Accuracy, AUC, Precision, Recall, F1, and MCC metrics computed in real-time.
    - Examine the interactive Confusion Matrix heatmap and Classification Report.
    - Test custom data by uploading `test_data.csv` via the sidebar uploader.
+

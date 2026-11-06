@@ -1,5 +1,5 @@
 import os
-import pandas as pd
+import argparse
 from reportlab.lib.pagesizes import letter
 from reportlab.lib import colors
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
@@ -9,7 +9,6 @@ from reportlab.platypus import (
     Spacer,
     Table,
     TableStyle,
-    KeepTogether,
     HRFlowable,
     Image as RLImage
 )
@@ -31,14 +30,13 @@ def create_assignment_pdf(
 
     styles = getSampleStyleSheet()
 
-    # Simple, academic typography (no extra decorative colors or border headers)
+    # Clean academic typography (no extra decorative colors or border headers)
     title_style = ParagraphStyle(
         'DocTitle',
         parent=styles['Normal'],
         fontName='Helvetica-Bold',
         fontSize=18,
         leading=22,
-        alignment=0, # Left-aligned clean
         spaceAfter=6
     )
 
@@ -69,7 +67,7 @@ def create_assignment_pdf(
         fontSize=13,
         leading=17,
         textColor=colors.black,
-        spaceBefore=12,
+        spaceBefore=14,
         spaceAfter=6,
         keepWithNext=True
     )
@@ -81,7 +79,7 @@ def create_assignment_pdf(
         fontSize=11,
         leading=15,
         textColor=colors.black,
-        spaceBefore=8,
+        spaceBefore=10,
         spaceAfter=4,
         keepWithNext=True
     )
@@ -94,12 +92,6 @@ def create_assignment_pdf(
         leading=13.5,
         textColor=colors.black,
         spaceAfter=6
-    )
-
-    body_bold = ParagraphStyle(
-        'Body_Bold',
-        parent=body_style,
-        fontName='Helvetica-Bold'
     )
 
     link_style = ParagraphStyle(
@@ -184,7 +176,6 @@ def create_assignment_pdf(
         except Exception as e:
             story.append(Paragraph(f"Error loading screenshot: {e}", body_style))
     else:
-        # Placeholder frame for screenshot
         placeholder_data = [[
             Paragraph(
                 "<br/><br/><b>[ BITS Virtual Lab Execution Screenshot ]</b><br/><br/>"
@@ -243,7 +234,6 @@ def create_assignment_pdf(
     story.append(Paragraph("d. Models Used & Evaluation Metrics", h2_style))
     story.append(Paragraph("All five mandated classification models were trained on the identical training partition and evaluated on the hold-out test partition (<code>test_data.csv</code>, N = 921). The calculated metrics are detailed in the comparison table below:", body_style))
 
-    # Comparison Table
     table_raw = [
         [
             Paragraph("<b>ML Model Name</b>", table_header),
@@ -364,4 +354,16 @@ def create_assignment_pdf(
     print(f"PDF generated successfully: {output_filename}")
 
 if __name__ == '__main__':
-    create_assignment_pdf()
+    parser = argparse.ArgumentParser(description="Generate Assignment 2 Submission PDF")
+    parser.add_argument("--github-url", default="https://github.com/lokeshpanda/email-spam-classifier-bits", help="GitHub repository URL")
+    parser.add_argument("--streamlit-url", default="https://email-spam-classifier-bits.streamlit.app", help="Live Streamlit app URL")
+    parser.add_argument("--screenshot", default=None, help="Path to BITS Lab execution screenshot image")
+    parser.add_argument("--output", default="ML_Assignment_2_Submission_2026AK05158.pdf", help="Output PDF filename")
+    
+    args = parser.parse_args()
+    create_assignment_pdf(
+        output_filename=args.output,
+        github_url=args.github_url,
+        streamlit_url=args.streamlit_url,
+        screenshot_path=args.screenshot
+    )

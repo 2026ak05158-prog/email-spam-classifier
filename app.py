@@ -298,3 +298,4 @@ with st.expander("ℹ️ Inspect Dataset Details"):
     st.write(f"**Ground-Truth Class Breakdown:**")
     st.write(y_eval.value_counts().rename({0: "Non-Spam (0)", 1: "Spam (1)"}))
     st.dataframe(test_df.head(10), use_container_width=True)
+
