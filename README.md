@@ -43,8 +43,8 @@ The full dataset of 4,601 instances was partitioned using a stratified 80/20 tra
 
 ## c. GitHub Repository Link
 
-- **GitHub Repository:** `https://github.com/lokeshpanda/email-spam-classifier-bits`
-- **Streamlit Community Cloud Live App:** `https://email-spam-classifier-bits.streamlit.app`
+- **GitHub Repository:** `https://github.com/2026ak05158-prog/email-spam-classifier`
+- **Streamlit Community Cloud Live App:** `https://email-spam-classifier.streamlit.app`
 
 *(Note: Verify the exact URL depending on your personal repository configuration.)*
 
@@ -112,8 +112,8 @@ The evaluation metrics calculated across all 5 models on the identical test set 
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/lokeshpanda/email-spam-classifier-bits.git
-   cd email-spam-classifier-bits
+   git clone https://github.com/2026ak05158-prog/email-spam-classifier.git
+   cd email-spam-classifier
    ```
 
 2. **Install dependencies:**
