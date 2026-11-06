@@ -44,7 +44,7 @@ The full dataset of 4,601 instances was partitioned using a stratified 80/20 tra
 ## c. GitHub Repository Link
 
 - **GitHub Repository:** `https://github.com/2026ak05158-prog/email-spam-classifier`
-- **Streamlit Community Cloud Live App:** `https://email-spam-classifier.streamlit.app`
+- **Streamlit Community Cloud Live App:** `https://email-spam-classifier-01.streamlit.app/`
 
 *(Note: Verify the exact URL depending on your personal repository configuration.)*
 
