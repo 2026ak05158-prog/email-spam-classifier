@@ -2,4 +2,8 @@ __pycache__/
 *.pyc
 .DS_Store
 .ipynb_checkpoints/
-
+*.pdf
+generate_pdf.py
+push_to_github.sh
+spambase_full.csv
+evaluation_results.csv
